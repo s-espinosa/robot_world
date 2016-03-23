@@ -1,0 +1,12 @@
+<h1>All Robots</h1>
+<div class="list-group">
+  <% @robots.each do |robot| %>
+    <p class="list-group-item">
+      <%= robot.id.first %>: <a href="/robots/<%= robot.id.first %>"><%= robot.name %></a> <a href="/robots/<%= robot.id.first %>/edit">Edit</a>
+    </p>
+    <form action="/robots/<%= robot.id.first %>" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <input type="submit" value="delete">
+    </form>
+  <% end %>
+</div>
