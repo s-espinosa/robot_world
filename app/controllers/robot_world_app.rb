@@ -1,14 +1,12 @@
 class RobotWorldApp < Sinatra::Base
+  attr_reader :robot_directory
+
   get '/' do
     erb :dashboard
   end
 
   get '/robots' do
     @robots = robot_directory.all
-    @robots.each do |robot|
-      puts robot.id.inspect
-      puts "\n\n"
-    end
     erb :index
   end
 
