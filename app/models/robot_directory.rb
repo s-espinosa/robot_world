@@ -1,5 +1,4 @@
 require 'yaml/store'
-require_relative 'robot'
 
 class RobotDirectory
   attr_reader :database
@@ -37,21 +36,26 @@ class RobotDirectory
     end
   end
 
-  def delete(id)
-    database.transaction do
-      database['robots'].delete_if { |robot| robot["id"] == id }
-    end
+  def find(id)
+    Robot.new(raw_robot(id))
   end
 
   def all
     raw_robots.map { |robot| Robot.new(robot)}
   end
 
-  def find(id)
-    Robot.new(raw_robot(id))
+  def destroy(id)
+    database.transaction do
+      database['robots'].delete_if { |robot| robot["id"] == id }
+    end
   end
 
-
+  def destroy_all
+    database.transaction do
+      database['robots'] = []
+      database['total']  = 0
+    end
+  end
 
   private
   def raw_robots

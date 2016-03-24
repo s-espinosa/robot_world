@@ -1,16 +1,14 @@
-require 'pry'
-require 'models/robot_directory'
-
 class RobotWorldApp < Sinatra::Base
-  set :root, File.expand_path("..", __dir__)
-  set :method_override, true
-
   get '/' do
     erb :dashboard
   end
 
   get '/robots' do
     @robots = robot_directory.all
+    @robots.each do |robot|
+      puts robot.id.inspect
+      puts "\n\n"
+    end
     erb :index
   end
 
@@ -39,7 +37,7 @@ class RobotWorldApp < Sinatra::Base
   end
 
   delete '/robots/:id' do |id|
-    robot_directory.delete(id.to_i)
+    robot_directory.destroy(id.to_i)
     redirect "/robots"
   end
 
