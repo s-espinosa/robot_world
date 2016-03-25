@@ -25,7 +25,7 @@ class RobotDirectory
 
   def update(id, robot)
     database.transaction do
-      target = database['robots'].detect { |robot| robot["id"] == id }
+      target = database['robots'].detect { |robot| robot["id"] == id.first }
       target["name"]       = robot[:name]
       target["city"]       = robot[:city]
       target["state"]      = robot[:state]
@@ -46,7 +46,7 @@ class RobotDirectory
 
   def destroy(id)
     database.transaction do
-      database['robots'].delete_if { |robot| robot["id"] == id }
+      database['robots'].delete_if { |robot| robot["id"] == id.first }
     end
   end
 
