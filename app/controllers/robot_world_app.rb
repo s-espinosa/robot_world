@@ -41,9 +41,9 @@ class RobotWorldApp < Sinatra::Base
 
   def robot_directory
     if ENV["RACK_ENV"] == "test"
-      database = YAML::Store.new('db/robot_directory_test')
+      database = Sequel.sqlite('db/robot_directory_test.sqlite')
     else
-      database = YAML::Store.new('db/robot_directory')
+      database = Sequel.sqlite('db/robot_directory_development.sqlite')
     end
     @robot_directory ||= RobotDirectory.new(database)
   end

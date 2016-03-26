@@ -15,14 +15,14 @@ module TestHelpers
   end
 
   def robot_directory
-    database = YAML::Store.new('db/robot_directory_test')
+    database = Sequel.sqlite('db/robot_directory_test.sqlite')
     @robot_directory ||= RobotDirectory.new(database)
   end
 
   def create_robots(num = 2)
     num.times do |current_num|
       robot_directory.create({
-        :id         => "#{current_num + 1}",
+        # :id         => "#{current_num + 1}",
         :name       => "Name #{current_num + 1}",
         :city       => "City #{current_num + 1}",
         :state      => "State #{current_num + 1}",

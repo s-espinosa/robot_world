@@ -5,7 +5,8 @@ class RobotTest < Minitest::Test
 
   def test_assigns_attributes_correctly
     create_robots(1)
-    robot = robot_directory.find(1)
+
+    robot = robot_directory.all.last
 
     assert_equal "Name 1", robot.name
     assert_equal "City 1", robot.city
