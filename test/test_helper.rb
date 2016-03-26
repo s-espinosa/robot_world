@@ -6,7 +6,7 @@ require 'minitest/pride'
 require 'capybara/dsl'
 require 'tilt/erb'
 
-Capybara.app = RobotDirectory
+Capybara.app = RobotWorldApp
 
 module TestHelpers
   def teardown
