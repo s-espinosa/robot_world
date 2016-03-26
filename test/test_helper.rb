@@ -44,4 +44,17 @@ module TestHelpers
      :department => "Updated Department"
     }
   end
+
+  def new_capybara_robot
+    visit '/robots/new'
+
+    fill_in 'robot[name]', with: 'Robot Name'
+    fill_in 'robot[city]', with: 'Robot City'
+    fill_in 'robot[state]', with: 'Robot State'
+    fill_in 'robot[avatar]', with: 'Robot Avatar'
+    fill_in 'robot[birthdate]', with: 'Robot Birthdate'
+    fill_in 'robot[date_hired]', with: 'Robot Date Hired'
+    fill_in 'robot[department]', with: 'Robot Department'
+    click_button 'Submit'
+  end
 end
