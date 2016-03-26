@@ -2,9 +2,9 @@
 <div class="list-group">
   <% @robots.each do |robot| %>
     <p class="list-group-item">
-      <%= robot.id.first %>: <a href="/robots/<%= robot.id.first %>"><%= robot.name %></a> <a href="/robots/<%= robot.id.first %>/edit">Edit</a>
+      <%= robot.id %>: <a href="/robots/<%= robot.id %>"><%= robot.name %></a> <a href="/robots/<%= robot.id %>/edit">Edit</a>
     </p>
-    <form action="/robots/<%= robot.id.first %>" method="post">
+    <form action="/robots/<%= robot.id %>" method="post">
       <input type="hidden" name="_method" value="delete">
       <input type="submit" value="delete">
     </form>

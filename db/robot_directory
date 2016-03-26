@@ -24,4 +24,60 @@ robots:
   birthdate: 2/2/14
   date_hired: 2/2/15
   department: Analytics
-total: 4
+- id: 14
+  name: Robot Name
+  city: Robot City
+  state: Robot State
+  avatar: Robot Avatar
+  birthdate: Robot Birthdate
+  date_hired: Robot Date Hired
+  department: Robot Department
+- id: 15
+  name: Robot Name
+  city: Robot City
+  state: Robot State
+  avatar: Robot Avatar
+  birthdate: Robot Birthdate
+  date_hired: Robot Date Hired
+  department: Robot Department
+- id: 16
+  name: Robot Name
+  city: Robot City
+  state: Robot State
+  avatar: Robot Avatar
+  birthdate: Robot Birthdate
+  date_hired: Robot Date Hired
+  department: Robot Department
+- id: 17
+  name: Robot Name
+  city: Robot City
+  state: Robot State
+  avatar: Robot Avatar
+  birthdate: Robot Birthdate
+  date_hired: Robot Date Hired
+  department: Robot Department
+- id: 18
+  name: Robot Name
+  city: Robot City
+  state: Robot State
+  avatar: Robot Avatar
+  birthdate: Robot Birthdate
+  date_hired: Robot Date Hired
+  department: Robot Department
+- id: 19
+  name: Robot Name
+  city: Robot City
+  state: Robot State
+  avatar: Robot Avatar
+  birthdate: Robot Birthdate
+  date_hired: Robot Date Hired
+  department: Robot Department
+- id: 20
+  name: Robot Name
+  city: Robot City
+  state: Robot State
+  avatar: Robot Avatar
+  birthdate: Robot Birthdate
+  date_hired: Robot Date Hired
+  department: Robot Department
+total: 20

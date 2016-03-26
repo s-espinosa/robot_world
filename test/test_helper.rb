@@ -15,7 +15,7 @@ module TestHelpers
   end
 
   def robot_directory
-    database = YAML::Store.new('db/task_manager_test')
+    database = YAML::Store.new('db/robot_directory_test')
     @robot_directory ||= RobotDirectory.new(database)
   end
 

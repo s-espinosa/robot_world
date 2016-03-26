@@ -26,13 +26,13 @@ class RobotWorldTest < Minitest::Test
   def test_it_can_find_a_specific_task
     create_robots(5)
 
-    robot1_id = robot_directory.all[-5].id.first
+    robot1_id = robot_directory.all[-5].id
     robot1    = robot_directory.find(robot1_id)
 
     assert_equal "Name 1", robot1.name
     assert_equal "State 1", robot1.state
 
-    robot3_id = robot_directory.all[-3].id.first
+    robot3_id = robot_directory.all[-3].id
     robot3    = robot_directory.find(robot3_id)
 
     assert_equal "Name 3", robot3.name
@@ -69,7 +69,7 @@ class RobotWorldTest < Minitest::Test
 
     all_robots = robot_directory.all
 
-    assert_equal 0, all_robots.size
+    assert_equal 0, all_robots.count
     refute all_robots.any? { |robot| robot.name == "Name 1" }
   end
 end
