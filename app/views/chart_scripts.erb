@@ -1,0 +1,52 @@
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+  google.charts.load('current', {'packages':['corechart']});
+  google.charts.setOnLoadCallback(drawChart);
+
+  function drawChart() {
+    // Year Hired Data
+    var year_hired_data = new google.visualization.DataTable();
+    year_hired_data.addColumn('number', 'Year');
+    year_hired_data.addColumn('number', 'Robots');
+    year_hired_data.addRows(<%= @robot_analytics.by_year_hired.to_a %>);
+
+    //Department Data
+    var department_data = new google.visualization.DataTable();
+    department_data.addColumn('string', 'State');
+    department_data.addColumn('number', 'Robots');
+    department_data.addRows(<%= @robot_analytics.by_department.to_a %>);
+
+    //State Data
+    var city_data = new google.visualization.DataTable();
+    city_data.addColumn('string', 'State');
+    city_data.addColumn('number', 'Robots');
+    city_data.addRows(<%= @robot_analytics.by_city.to_a %>);
+
+    //State Data
+    var state_data = new google.visualization.DataTable();
+    state_data.addColumn('string', 'State');
+    state_data.addColumn('number', 'Robots');
+    state_data.addRows(<%= @robot_analytics.by_state.to_a %>);
+
+
+    // Options
+    var year_hired_options = {'title':'Robots by Year Hired',
+                              vAxis:  {format:'####'}};
+    var department_options = {'title':'Robots by Department'};
+    var city_options       = {'title':'Robots by City'};
+    var state_options      = {'title':'Robots by State'};
+
+    // Charts
+    var year_hired_chart = new google.visualization.BarChart(document.getElementById('chart_year_hired'));
+    year_hired_chart.draw(year_hired_data, year_hired_options);
+
+    var department_chart = new google.visualization.PieChart(document.getElementById('chart_department'));
+    department_chart.draw(department_data, department_options);
+
+    var city_chart = new google.visualization.PieChart(document.getElementById('chart_city'));
+    city_chart.draw(city_data, city_options);
+
+    var state_chart = new google.visualization.PieChart(document.getElementById('chart_state'));
+    state_chart.draw(state_data, state_options);
+  }
+</script>

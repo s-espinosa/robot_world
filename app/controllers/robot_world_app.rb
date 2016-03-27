@@ -2,6 +2,7 @@ class RobotWorldApp < Sinatra::Base
   attr_reader :robot_directory
 
   get '/' do
+    @robot_analytics = RobotAnalytics.new(robot_directory)
     erb :dashboard
   end
 
