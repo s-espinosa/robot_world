@@ -1,12 +1,16 @@
 <h1>All Robots</h1>
 <div class="list-group">
-  <% @robots.each do |robot| %>
-    <p class="list-group-item">
-      <%= robot.id %>: <a href="/robots/<%= robot.id %>"><%= robot.name %></a> <a href="/robots/<%= robot.id %>/edit">Edit</a>
-    </p>
-    <form action="/robots/<%= robot.id %>" method="post">
-      <input type="hidden" name="_method" value="delete">
-      <input type="submit" value="delete">
-    </form>
+  <% @robots.each_with_index do |robot, index| %>
+    <%= index.even? ? "<div class='row'>" : "" %>
+      <div class='col-md-6'>
+        <p class="list-group-item">
+          <img src='<%= robot.avatar %>'><%= robot.id %>: <a href="/robots/<%= robot.id %>"><%= robot.name %></a> <a href="/robots/<%= robot.id %>/edit">Edit</a>
+          <form action="/robots/<%= robot.id %>" method="post">
+            <input type="hidden" name="_method" value="delete">
+            <input type="submit" value="delete">
+          </form>
+        </p>
+      </div>
+    <%= index.odd? ? "</div>" : "" %>
   <% end %>
 </div>
