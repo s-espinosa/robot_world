@@ -1,11 +1,13 @@
-<h1>Welcome to Robot World</h1>
 <%= erb :chart_scripts %>
-<div class="list-group">
-  <a class="list-group-item" href="/robots">Robots</a>
-  <a class="list-group-item" href="/robots/new">New Robot</a>
-</div>
+<h1>Dashboard</h1>
 <h2>Average Robot Age: <%= @robot_analytics.average_age%></h2>
-<div id="chart_year_hired"></div>
-<div id="chart_department"></div>
-<div id="chart_city"></div>
-<div id="chart_state"></div>
+
+<div class="row">
+  <div class=col-md-6><div id="chart_year_hired"></div></div>
+  <div class=col-md-6><div id="chart_department"></div></div>
+</div>
+
+<div class="row">
+  <div class=col-md-6><div id="chart_city"></div></div>
+  <div class=col-md-6><div id="chart_state"></div></div>
+</div>

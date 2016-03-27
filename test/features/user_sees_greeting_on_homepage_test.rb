@@ -8,7 +8,7 @@ class UserSeesGreetingOnHomepage < Minitest::Test
     visit '/'
 
     within("h1") do
-      assert page.has_content?("Welcome to Robot World")
+      assert page.has_content?("Dashboard")
     end
   end
 
