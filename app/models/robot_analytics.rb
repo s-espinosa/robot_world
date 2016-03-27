@@ -12,8 +12,8 @@ class RobotAnalytics
   end
 
   def by_year_hired
-    robots_by("date_hired").reduce(Hash.new(0)) do |hash, (date, count)|
-      hash[date.year] = count
+    robots_by("date_hired").reduce(Hash.new(0)) do |hash, robot|
+      hash[robot[0].year] += robot[1]
       hash
     end
   end
