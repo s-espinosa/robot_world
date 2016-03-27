@@ -5,6 +5,7 @@ require 'minitest/autorun'
 require 'minitest/pride'
 require 'capybara/dsl'
 require 'tilt/erb'
+require 'date'
 
 Capybara.app = RobotWorldApp
 
@@ -20,15 +21,15 @@ module TestHelpers
   end
 
   def create_robots(num = 2)
+    today = Date.today
     num.times do |current_num|
       robot_directory.create({
-        # :id         => "#{current_num + 1}",
         :name       => "Name #{current_num + 1}",
         :city       => "City #{current_num + 1}",
         :state      => "State #{current_num + 1}",
         :avatar     => "Avatar #{current_num + 1}",
-        :birthdate  => "Birthdate #{current_num + 1}",
-        :date_hired => "Date Hired #{current_num + 1}",
+        :birthdate  => "#{today.year - current_num * 2}/#{today.mon}/#{today.mday}",
+        :date_hired => "#{today.year - current_num}/#{today.mon}/#{today.mday}",
         :department => "Department #{current_num + 1}"
       })
     end
@@ -39,8 +40,8 @@ module TestHelpers
      :city       => "Updated City",
      :state      => "Updated State",
      :avatar     => "Updated Avatar",
-     :birthdate  => "Updated Birthdate",
-     :date_hired => "Updated Date Hired",
+     :birthdate  => "80/1/10",
+     :date_hired => "02/1/10",
      :department => "Updated Department"
     }
   end
@@ -52,8 +53,8 @@ module TestHelpers
     fill_in 'robot[city]', with: 'Robot City'
     fill_in 'robot[state]', with: 'Robot State'
     fill_in 'robot[avatar]', with: 'Robot Avatar'
-    fill_in 'robot[birthdate]', with: 'Robot Birthdate'
-    fill_in 'robot[date_hired]', with: 'Robot Date Hired'
+    fill_in 'robot[birthdate]', with: '82/6/6'
+    fill_in 'robot[date_hired]', with: '04/6/6'
     fill_in 'robot[department]', with: 'Robot Department'
     click_button 'Submit'
   end

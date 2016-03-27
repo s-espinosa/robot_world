@@ -14,8 +14,8 @@ class UserCanEditAnExistingRobot < Minitest::Test
     fill_in 'robot[city]', with: 'New City'
     fill_in 'robot[state]', with: 'New State'
     fill_in 'robot[avatar]', with: 'New Avatar'
-    fill_in 'robot[birthdate]', with: 'New Birthdate'
-    fill_in 'robot[date_hired]', with: 'New Date Hired'
+    fill_in 'robot[birthdate]', with: '84/1/1'
+    fill_in 'robot[date_hired]', with: '06/1/1'
     fill_in 'robot[department]', with: 'New Department'
     click_button 'submit'
 

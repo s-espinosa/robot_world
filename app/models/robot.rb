@@ -1,3 +1,5 @@
+require 'date'
+
 class Robot
   attr_reader :id,
               :name,
@@ -14,8 +16,12 @@ class Robot
     @city       = args[:city]
     @state      = args[:state]
     @avatar     = args[:avatar]
-    @birthdate  = args[:birthdate]
-    @date_hired = args[:date_hired]
+    @birthdate  = Date.parse(args[:birthdate])
+    @date_hired = Date.parse(args[:date_hired])
     @department = args[:department]
+  end
+
+  def age
+
   end
 end
