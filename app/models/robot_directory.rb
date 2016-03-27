@@ -33,6 +33,10 @@ class RobotDirectory
     database.from(:robots).delete
   end
 
+  def count
+    database.from(:robots).all.count
+  end
+
   private
   def raw_robots
     database.from(:robots).to_a

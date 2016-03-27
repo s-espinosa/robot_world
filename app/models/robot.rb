@@ -22,6 +22,10 @@ class Robot
   end
 
   def age
-
+    today = Date.today
+    age = today.year - birthdate.year
+    age = age - 1 if (birthdate.month >= today.month &&
+                      birthdate.day   >  today.day)
+    age
   end
 end
